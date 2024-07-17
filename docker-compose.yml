@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  portal-maestros:
+    image: node:20-alpine
+    ports:
+        - 8550:8550/tcp # Web Server
+        - 9220:9220/tcp # Debugger
+    working_dir: /usr/src/app
+    volumes:
+        - ./../g5-portal:/usr/src/app
+    command: "npm run-script debug"
